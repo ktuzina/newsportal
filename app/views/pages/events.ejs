@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <% include ../partials/header.ejs %></head>
+<body>
+<% include ../partials/nav.ejs %>
+
+<div class="container">
+
+    <br>
+    <div>
+        <h1>Афиша мероприятий</h1>
+    </div>
+    <br>
+    <% for(var i = 0, len = events.length; i<len; i=i+3) {%>
+    <div class="row">
+        <div class="col-lg-3">
+            <a href="/event?id=<%= events[i].id%>">
+                <img src="<%= events[i].picture%>" class="img-fluid" alt="Responsive image">
+                <hr/>
+                <h5><%= dateFormat(events[i].startDate,"dd.mm.yyyy hh:mm")%></h5>
+                <h4><%= events[i].name%></h4>
+            </a>
+        </div>
+        <% if (events[i + 1] !== undefined){%>
+        <div class="col-lg-3">
+            <a href="/event?id=<%= events[i + 1].id%>">
+                <img src="<%= events[i + 1].picture%>" class="img-fluid" alt="Responsive image">
+                <%= dateFormat(events[i + 1].startDate,"dd.mm.yyyy hh:mm")%>
+                <h5><%= events[i + 1].name%></h5>
+            </a>
+        </div>
+        <%}%>
+        <% if (events[i + 2] !== undefined){%>
+        <div class="col-lg-3">
+            <a href="/event?id=<%= events[i + 2].id%>">
+                <img src="<%= events[i + 2].picture%>" class="img-fluid" alt="Responsive image">
+                <%= dateFormat(events[i + 2].startDate,"dd.mm.yyyy hh:mm")%>
+                <h5><%= events[i + 2].name%></h5>
+            </a>
+        </div>
+        <%}%>
+        <% if (events[i + 3] !== undefined){%>
+        <div class="col-lg-3">
+            <a href="/event?id=<%= events[i + 3].id%>">
+                <img src="<%= events[i + 3].picture%>" class="img-fluid" alt="Responsive image">
+                <%= dateFormat(events[i + 3].startDate,"dd.mm.yyyy hh:mm")%>
+                <h5><%= events[i + 3].name%></h5>
+            </a>
+        </div>
+        <%}%>
+        <br/>
+    </div>
+    <%}%>
+
+
+</div>
+
+<% include ../partials/footer.ejs %>
+
+</body>
+</html>

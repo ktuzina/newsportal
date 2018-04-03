@@ -1,0 +1,19 @@
+{
+	"WELCOME_MSG": "Привет!",
+	"CONTACT_TEXT": "что-то",
+	"Hello i18n": "Привет, Андрей",
+	"sections": "Разделы",
+	"Discounts": "Скидки",
+	"CITY_EVENTS": "Мероприятия города",
+	"LANGUAGE": "Русский",
+	"ADD_COMPANY": "Добавить компанию",
+	"SIGN_IN": "Войти",
+	"DETAILED_INFO": "Подробная информация",
+	"AUTO": "Авто",
+	"REVIEWS": "Отзывы",
+	"SIGN_UP": "Зарегистрироваться",
+	"NAME": "Имя",
+	"SURNAME": "Фамилия",
+	"EMAIL": "Email",
+	"PASSWORD": "Пароль"
+}

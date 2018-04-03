@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <% include ../partials/header.ejs %></head>
+<body>
+<% include ../partials/nav.ejs %>
+
+<div class="container">
+    <div>
+        <h2>Добавьте свою компанию и ваша целевая аудитория узнает о вас</h2>
+        <form>
+            <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-3 col-form-label">Название компании:*</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="inputEmail3" placeholder="Юридическое название">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="inputPassword3" class="col-sm-3 col-form-label">Контактное лицо:*</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="inputPassword3" placeholder="ФИО">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="inputPassword3" class="col-sm-3 col-form-label">Должность в компании:*</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="inputPassword3" placeholder="Директор">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="inputPassword3" class="col-sm-3 col-form-label">Номер телефона:*</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="inputPassword3" placeholder="+375 (    )">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="inputPassword3" class="col-sm-3 col-form-label">Email:*</label>
+                <div class="col-sm-9">
+                    <input type="email" class="form-control" id="inputPassword3" placeholder="Email">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-10">
+                    <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</div>
+<div class="footer">
+    <% include ../partials/footer.ejs %>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <% include ../partials/header.ejs %>
+    <style type="text/css">
+        .line {
+            border-left: 2px solid #ccc; /* Параметры линии */
+            margin-left: 20px; /* Отступ слева */
+            padding-left: 10px; /* Расстояние от линии до текста */
+        }
+    </style>
+</head>
+<body>
+<% include ../partials/nav.ejs %>
+
+<div class="container">
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+            <%= news.section.name%>
+        </div>
+        <div class="col-lg-1">
+            <%= dateFormat(news.article.createdAt,"dd.mm.yyyy")%>
+        </div>
+    </div>
+    <hr/>
+    <div>
+        <h1><%= news.article.title%>
+        </h1>
+    </div>
+    <br>
+    <div>
+        <img src="<%= news.article.picture%>" class="mx-auto d-block" width="70%" alt="Responsive image" >
+    </div>
+
+    <br/>
+    <div>
+        <h5>
+            <%= news.article.summary%>
+        </h5>
+        <hr/>
+        <%- news.article.description%>
+    </div>
+
+    <hr style="border:solid 2px black;">
+    <div>
+        <h3>Комментарии</h3>
+        <% news.comments.forEach(function(comment) {%>
+        <div>
+            <p class="line">
+            <b><%= comment.userName + " " + comment.userSurname%></b>
+            <br/>
+                <%= comment.text%>
+            </p>
+        </div>
+        <hr/>
+        <%});%>
+        <% if (!userCan('is not auth')){%>
+        <form action="/create-comment" method="post">
+            <input type="hidden" name="newsId" value="<%= news.article.id%>"/>
+            <textarea class="form-control" id="comment" name="comment" placeholder="Оставьте ваш комментарий"></textarea>
+            <br/>
+            <button type="submit" class="btn btn-primary">Добавить</button>
+        </form>
+        <%}%>
+    </div>
+</div>
+
+<% include ../partials/footer.ejs %>
+
+</body>

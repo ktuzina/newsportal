@@ -1,0 +1,19 @@
+{
+	"WELCOME_MSG": "Hi! Welcome!",
+	"CONTACT_TEXT": "More bla",
+	"Hello i18n": "Hello i18n",
+	"sections": "Sections",
+	"Discounts": "Discounts",
+	"CITY_EVENTS": "City events",
+	"LANGUAGE": "English",
+	"ADD_COMPANY": "Add company",
+	"SIGN_IN": "Sign in",
+	"DETAILED_INFO": "Detailed information",
+	"AUTO": "Auto",
+	"REVIEWS": "Reviews",
+	"SIGN_UP": "Sign up",
+	"NAME": "Name",
+	"SURNAME": "Surname",
+	"EMAIL": "Email",
+	"PASSWORD": "Password"
+}

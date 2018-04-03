@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <% include ../partials/header.ejs %></head>
+<body>
+    <% include ../partials/nav.ejs %>
+
+    <!--<div style="height: 400px; background-image: url('news1.jpg');height: 100%;background-position: center;background-repeat: no-repeat;background-size: cover;">-->
+        <!--<div style="color:#FFFFFF">-->
+<!--&lt;!&ndash;            <div style="height: 40vh;display: flex;flex-direction:column; justify-content:center; align-items:center; color:#383838">-->
+
+            <!--</div>&ndash;&gt;-->
+        <!--</div>-->
+        <!---->
+    <!--</div>-->
+    <img src="news3.jpg" class="img-fluid">
+    <!--<div style="background: #383838; padding-left: 15px; padding-top: 10px; padding-bottom: 10px">-->
+        <!--<div class="row">
+            <div class="col-lg-2" style="padding-top: 5px">
+                <div style="color: #FFF1A6">
+                    <h5>НОВОСТИ</h5>
+                </div>
+            </div>
+
+            <div class="col-lg-8">
+            </div>
+
+            <div class="col-lg-2">
+                <button type="button" class="btn btn-secondary"><%=__('DETAILED_INFO')%></button>
+            </div>
+
+        </div>-->
+    </div>
+<div class="container">
+    <br>
+    <% news.forEach(function(n) { %>
+    <div class="row">
+        <div class="col-lg-4">
+            <img src="<%= n.picture%>" class="img-fluid" alt="Responsive image">
+        </div>
+        <div class="col-lg-8">
+            <h3><a href="/article?id=<%= n.id%>"><%= n.title%></a></h3>
+            <!--Краткое описание<br/>-->
+            <%= dateFormat(n.createdAt,"dd.mm.yyyy")%>
+        </div>
+    </div>
+    <hr/>
+    <% }); %>
+
+    <div>
+        <h1>Афиша</h1>
+        <div class="row">
+            <% events.forEach(function(event) { %>
+            <div class="col-lg-3">
+            <a href="/event?id=<%= event.id%>">
+                <div class="col">
+                    <img src="<%= event.picture%>" class="img-fluid" alt="Responsive image">
+                    <hr/>
+                    <h5><%= event.name%></h5>
+                </div>
+            </a>
+            </div>
+            <% }); %>
+        </div>
+        <div class="d-flex justify-content-center">
+            <form action="/events">
+                <button type="submit" class="btn btn-secondary">Показать еще</button>
+            </form>
+        </div>
+    </div>
+    <br/>
+</div>
+
+    <% include ../partials/footer.ejs %>
+
+</body>
+</html>

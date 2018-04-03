@@ -1,0 +1,133 @@
+<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="/" style="color: #FFF1A6"><h3>Все новости</h3></a>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="/technology">Технологии</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/people">Люди</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/finance">Финансы</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/sport">Спорт</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/realty">Недвижимость</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/auto">Авто</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/events">Афиша</a>
+      </li>
+        <% if (userCan('access admin pages')){%>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/create-article">Добавить новость</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/create-event">Добавить событие</a>
+          </li>
+      <%}%>
+    </ul>
+    <!--<form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>-->
+
+
+
+  </div>
+
+  <div style="padding-left: 1%">
+    <!--<form method="get" action="/login">-->
+     <!-- <button type="submit" class="btn btn-secondary" ><%= __('SIGN_IN')%></button>-->
+    <!-- Button trigger modal -->
+      <% if (userCan('is not auth')){%>
+      <a href="/login" class="btn btn-secondary" role="button"><%= __('SIGN_IN')%></a>
+        <!--<button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#modalSignIn"><%= __('SIGN_IN')%></button>-->
+    <!--</form>-->
+      <%}else{%>
+      <form action="/logout" method="get">
+          <button type="submit" class="btn btn-secondary" >Выйти</button>
+      </form>
+      <%}%>
+  </div>
+
+
+  <!-- Modal sign in -->
+  <div class="modal fade" id="modalSignIn" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle"><%= __('SIGN_IN')%></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form action="/login" method="post">
+          <div class="modal-body">
+
+            <div class="form-group">
+              <input type="text" class="form-control" id="recipient-name" name="username" placeholder="Email">
+            </div>
+            <div class="form-group">
+              <input class="form-control" id="password" name="password" type="password" placeholder="<%= __('PASSWORD')%>"/>
+            </div>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#modalSignUp" data-dismiss="modal"><%= __('SIGN_UP')%></button>
+            <button type="submit" class="btn btn-primary"><%= __('SIGN_IN')%></button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Modal sign up-->
+  <div class="modal fade" id="modalSignUp" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle"><%= __('SIGN_UP')%></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form action="/sign-up" method="post">
+          <div class="modal-body">
+
+            <div class="form-group">
+              <input type="text" class="form-control" id="name" name="name" placeholder="<%= __('NAME')%>">
+            </div>
+            <div class="form-group">
+              <input class="form-control" id="surname" name="surname" type="text" placeholder="<%= __('SURNAME')%>"/>
+            </div>
+            <div class="form-group">
+              <input class="form-control" id="email" name="email" type="email" placeholder="<%= __('EMAIL')%>"/>
+            </div>
+            <div class="form-group">
+              <input class="form-control" id="password" name="password" type="password" placeholder="<%= __('PASSWORD')%>"/>
+            </div>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#modalSignIn" data-dismiss="modal"><%= __('SIGN_IN')%></button>
+            <button type="submit" class="btn btn-primary"><%= __('SIGN_UP')%></button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+
+</nav>
