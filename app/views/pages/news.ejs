@@ -23,7 +23,7 @@
         </div>
         <% if (news[i + 1] !== undefined){%>
         <div class="col-lg-4">
-            <a href="/article?id=<%=news[i].id%>">
+            <a href="/article?id=<%=news[i+1].id%>">
                 <img src="<%= news[i + 1].picture%>" class="img-fluid" alt="Responsive image">
                 <%= dateFormat(news[i + 1].createdAt,"dd.mm.yyyy")%>
                 <h5><%= news[i + 1].title%></h5>
@@ -32,7 +32,7 @@
         <%}%>
         <% if (news[i + 2] !== undefined){%>
         <div class="col-lg-4">
-            <a href="/article?id=<%=news[i].id%>">
+            <a href="/article?id=<%=news[i+2].id%>">
                 <img src="<%= news[i + 2].picture%>" class="img-fluid" alt="Responsive image">
                 <%= dateFormat(news[i + 2].createdAt,"dd.mm.yyyy")%>
                 <h5><%= news[i + 2].title%></h5>
